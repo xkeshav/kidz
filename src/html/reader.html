@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Reader</title>
+</head>
+
+<body>
+	<header class="header">
+		<h2>Spelling with Audio</h2>
+		<button id="mute" class="button button-audio"></button>
+	</header>
+	<main id="main"></main>
+	<section class="section--audio hide">
+		<audio id="audioPlayer" controlslist="nodownload" type="audio/ogg; codecs=opus" controls autoplay />
+	</section>
+	<script src="../js/reader.js" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Panel</title>
+</head>
+
+<body>
+	<main>
+		<section class="toggle">
+			<h5>Alphabets carousel</h5>
+		</section>
+		<section id="option-box" class="panel__options expand">
+			<div class="orientation__option">
+				<input type="radio" class="orientation" name="orientation" id="horizontal" value="X" checked>
+				<label for="horizontal">↔</label>
+				<input type="radio" class="orientation" name="orientation" id="vertical" value="X" checked>
+				<label for="vertical">↕</label>
+			</div>
+			<div class="range__option">
+				<span id="range-bullet" class="range__label">0</span>
+				<input type="range" name="range" id="range" class="range_slider" value="0" min="0" , max="26">
+				<div class="range__minmax"><span>0</span><span>26</span></div>
+			</div>
+		</section>
+
+		<section class="scene">
+			<div class="panel"></div>
+		</section>
+	</main>
+	<script type="module" src="../js/panel.js"></script>
+</body>
+
+</html>
