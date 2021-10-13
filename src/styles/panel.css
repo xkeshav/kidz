@@ -1,0 +1,170 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: sans-serif;
+  text-align: center;
+  height: 100%;
+}
+:root {
+  --rotation: 0;
+  --color-max: 255;
+  --color-min: 0;
+  --color-mid: 170;
+  --ry: 0deg;
+  --tz: 288px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 'toggle' 'option' 'panel';
+  grid-auto-flow: row;
+  grid-template-rows: 20px minmax(10px, 180px) 1fr;
+  align-items: center;
+  grid-gap: 10px;
+  min-height: 100vh;
+}
+
+.panel__options {
+  grid-area: option;
+  background: linear-gradient(90deg #dbc4dd 05, #d7d2a7 100%);
+}
+
+.expand {
+  height: 200px;
+}
+.collapse {
+  height: 10px;
+}
+
+.scene {
+  grid-area: panel;
+  border: 1px solid #ccc;
+  width: 210px;
+  height: 150px;
+  perspective: 1000px;
+  align-self: center;
+  justify-self: center;
+}
+
+.panel {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  transform: translateZ(-288px);
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.panel__cell {
+  position: absolute;
+  height: 120px;
+  width: 190px;
+  left: 10px;
+  top: 10px;
+  border: 2px inset black;
+  line-height: 116px;
+  font-size: 80px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  opacity: 1;
+  transition: transform 1s, opacity 1s;
+  transform: rotateY(var(--ry, 0)) translateZ(var(--tz, 0));
+}
+
+.panel__cell:nth-child(10n + 1) {
+  background-color: rgba(var(--color-max), 0, var(--color-min), 0.8);
+}
+.panel__cell:nth-child(10n + 2) {
+  background-color: rgba(var(--color-max), var(--color-mid), 0, 0.8);
+}
+.panel__cell:nth-child(10n + 3) {
+  background-color: rgba(var(--color-mid), var(--color-max), 0, 0.8);
+}
+.panel__cell:nth-child(10n + 4) {
+  background-color: rgba(0, var(--color-max), 0, 0.8);
+}
+.panel__cell:nth-child(10n + 5) {
+  background-color: rgba(0, var(--color-max), var(--color-mid), 0.8);
+}
+.panel__cell:nth-child(10n + 6) {
+  background-color: rgba(0, var(--color-mid), var(--color-max), 0.8);
+}
+.panel__cell:nth-child(10n + 7) {
+  background-color: rgba(0, 0, var(--color-max), 0.8);
+}
+.panel__cell:nth-child(10n + 8) {
+  background-color: rgba(var(--color-mid), 0, var(--color-max), 0.8);
+}
+.panel__cell:nth-child(10n + 9) {
+  background-color: rgba(var(--color-max), 0, var(--color-mid), 0.8);
+}
+.panel__cell:nth-child(10n + 0) {
+  background-color: rgba(191, 64 149, 0.8);
+}
+
+.panel__cell:nth-child(1) {
+  --ry: 0deg;
+}
+.panel__cell:nth-child(2) {
+  --ry: 40deg;
+}
+.panel__cell:nth-child(3) {
+  --ry: 80deg;
+}
+.panel__cell:nth-child(4) {
+  --ry: 120deg;
+}
+.panel__cell:nth-child(5) {
+  --ry: 160deg;
+}
+.panel__cell:nth-child(6) {
+  --ry: 200deg;
+}
+.panel__cell:nth-child(7) {
+  --ry: 240deg;
+}
+.panel__cell:nth-child(8) {
+  --ry: 280deg;
+}
+.panel__cell:nth-child(9) {
+  --ry: 320deg;
+}
+.panel__cell:nth-child(10) {
+  --ry: 360deg;
+}
+
+/* radio buttons */
+
+.orientation__option {
+  align-self: center;
+}
+.orientation__option input[type='radio'] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.orientation__option label {
+  background-color: hsla(31, 28%, 62%, 0.42);
+  color: white;
+  font-size: larger;
+  border-radius: 4px;
+  display: -ms-inline-grid;
+  width: 60px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 10px auto;
+}
+
+.orientation__option label:hover {
+  background-color: hsla(80, 28%, 62%, 0.8);
+}
+
+.orientation__option input[type='radio']:checked + label {
+  color: white;
+  background-color: hsla(100, 78%, 63%, 0.8);
+}

@@ -1,7 +1,9 @@
+import { isAlphabet } from './utils.js';
+
 const panel = document.querySelector('.panel');
-const cellRange = document.querySelector('range');
-const orientationPanel = document.querySelector('.orientation');
-const rangeBullet = document.querySelector('range-bullet');
+const cellRange = document.querySelector('#range');
+const orientationPanel = document.querySelectorAll('.orientation');
+const rangeBullet = document.querySelector('#range-bullet');
 
 let selectedIndex = 0;
 const cellWidth = panel.offsetWidth;
@@ -15,7 +17,7 @@ const rotatePanel = ({ rotate = 'rotateX' }) => {
 
 const updatePanel = (num = 0) => {
   const fragment = document.createDocumentFragment();
-  for (let i = 0; i < number; i++) {
+  for (let i = 0; i < num; i++) {
     const div = document.createElement('div');
     div.classList.add('panel__cell');
     div.textContent = String.fromCodePoint(65 + i);
@@ -28,14 +30,14 @@ const changePanel = ({ orientation }) => {
   const cellCount = Number(cellRange.value);
   updatePanel(cellCount);
   theta = 360 / cellCount;
-  const cells = document.querySelectorAll(',panel__cell');
+  const cells = document.querySelectorAll('.panel__cell');
   const halfCell = cellWidth / 2;
   const divideBy = Math.tan(Math.PI / cellCount);
   radius = Math.round(halfCell / divideBy);
   cells.forEach((cell, i) => {
     const cellAngle = theta * i;
     const transformString = `${rotate}(${cellAngle}deg) translateZ(${radius}px)`;
-    cell.style.transform = transFormString;
+    cell.style.transform = transformString;
   });
   rotatePanel({ rotate });
 };
@@ -67,7 +69,7 @@ const onKeyChange = (e) => {
       orientation = 'X';
       break;
     }
-    case 39: {
+    case 40: {
       // ArrowDown
       selectedIndex--;
       orientation = 'X';
@@ -91,7 +93,7 @@ const updateSlider = () => {
   const bulletPosition = cellRange.value / cellRange.max;
   rangeBullet.style.left = `calc(${bulletPosition * 100}% - 1em)`;
 };
-
+console.log({ orientationPanel });
 orientationPanel.forEach((radio) => {
   radio.addEventListener('click', onOrientationChange, false);
 });

@@ -1,3 +1,5 @@
+import { emojiList, isAlphabet, isNumber, random } from './utils.js';
+
 const mainBlock = document.querySelector('main');
 const muteButton = document.querySelector('#mute');
 const audioPlayer = document.querySelector('#audioPlayer');
@@ -13,7 +15,9 @@ muteButton.addEventListener('click', (e) => {
 });
 
 const getEmoji = (letter) => {
-  const { [letter]: list = [] } = emojiList;
+  console.log({ letter });
+  const { [letter.toUpperCase()]: list = [] } = emojiList;
+  console.log({ list });
   if (list.length) {
     const codePoint = random(list);
     return String.fromCodePoint(codePoint);
@@ -27,7 +31,7 @@ const attachAudio = (key, isNumber = false) => {
     keyName = key.replace('Digit', '');
     location += 'numbers';
   } else {
-    keyName = key.replace('Key', '').toLowercase();
+    keyName = key.replace('Key', '').toLowerCase();
     location += 'alphabets';
   }
   const source = `${location}/${keyName}.ogg`;
@@ -53,18 +57,20 @@ const attachAudio = (key, isNumber = false) => {
 
 const isNonPrintingKey = (e) => {
   const { altKey, ctrlKey, metaKey, shiftKey } = e;
+  console.log({ altKey, ctrlKey, metaKey, shiftKey });
   return metaKey || ctrlKey || shiftKey || altKey;
 };
 
 document.addEventListener(
   'keydown',
   (e) => {
-    const { key, keyCode, which, code, altKey, ctrlKey, metaKey, shiftKey } = e;
+    const { key, keyCode, which, code } = e;
     console.log({ e });
-    if (!isNonPrintingKey) {
+    if (!isNonPrintingKey(e)) {
       if (isAlphabet(which)) {
-        const emoji = drawEmoji(key);
+        const emoji = getEmoji(key);
         mainBlock.innerHTML = key + emoji;
+        console.log({ emoji });
         attachAudio(code);
       } else if (isNumber(keyCode)) {
         mainBlock.innerHTML = key;
@@ -73,6 +79,8 @@ document.addEventListener(
         const x = String.fromCodePoint(112080);
         mainBlock.innerHTML = x;
       }
+    } else {
+      console.log('Printing Key');
     }
   },
   false

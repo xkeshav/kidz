@@ -17,6 +17,14 @@ app.get('/typing', (req, res) => {
   res.sendFile(path.join(__dirname, 'src', 'html', 'typing.html'));
 });
 
+app.get('/reader', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src', 'html', 'reader.html'));
+});
+
+app.get('/panel', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src', 'html', 'panel.html'));
+});
+
 app.use('/', express.static(path.join(__dirname, 'src')));
 app.use('/', router);
 app.listen(3000, () => {

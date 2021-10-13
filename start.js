@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 require('@babel/register')({
   presets: ['@babel/preset-env'],
 });

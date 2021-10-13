@@ -38,10 +38,10 @@ const drawSpelling = (key = '', color = 'green') => {
   spellDiv.style.color = color;
   document.documentElement.style.setProperty('--steps', width); // change css value from JS
   spellDiv.classList.remove('animation');
-  // removeClass(spellDiv, 'animation');
+  removeClass.call(spellDiv, 'animation');
   void spellDiv.offsetWidth;
   spellDiv.classList.add('animation');
-  // addClass(spellDiv, 'animation');
+  addClass.call(spellDiv, 'animation');
 };
 
 const drawSomething = () => {

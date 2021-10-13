@@ -1,0 +1,47 @@
+main {
+  font-size: 30vw;
+  display: grid;
+  place-content: center;
+  background-color: #b8ff33;
+  color: #ff61d5;
+  height: 100vh;
+  outline: none;
+  text-transform: uppercase;
+  transform: rotate(0deg);
+  transition-delay: 2ms;
+  transition-duration: 0ms;
+  transition-timing-function: ease-in-out;
+  transition-property: all;
+  will-change: contents;
+}
+
+.center {
+  display: grid;
+  place-items: center;
+}
+
+.hide {
+  display: none;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 3rem;
+  align-items: center;
+}
+
+.button {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  border: none;
+  background-color: hsl(60deg, 56%, 91%);
+  cursor: pointer;
+}
+
+.button-audio::before {
+  content: '\1F508';
+}
+
+.button-audio.mute::before {
+  content: '\1F507';
+}
