@@ -25,6 +25,10 @@ app.get('/panel', (req, res) => {
   res.sendFile(path.join(__dirname, 'src', 'html', 'panel.html'));
 });
 
+app.get('/grid', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src', 'html', 'grid.html'));
+});
+
 app.use('/', express.static(path.join(__dirname, 'src')));
 app.use('/', router);
 app.listen(3000, () => {

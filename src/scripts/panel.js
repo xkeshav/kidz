@@ -1,9 +1,9 @@
 import { isAlphabet } from './utils.js';
 
 const panel = document.querySelector('.panel');
-const cellRange = document.querySelector('#range');
+const cellRange = document.getElementById('range');
 const orientationPanel = document.querySelectorAll('.orientation');
-const rangeBullet = document.querySelector('#range-bullet');
+const rangeBullet = document.getElementById('range-bullet');
 
 let selectedIndex = 0;
 const cellWidth = panel.offsetWidth;
@@ -23,6 +23,8 @@ const updatePanel = (num = 0) => {
     div.textContent = String.fromCodePoint(65 + i);
     fragment.appendChild(div);
   }
+  panel.innerHTML = '';
+  panel.appendChild(fragment);
 };
 
 const changePanel = ({ orientation }) => {
@@ -82,7 +84,6 @@ const onKeyChange = (e) => {
         selectedIndex--;
       }
       orientation = 'X';
-      break;
     }
   }
   changePanel({ orientation });
@@ -93,7 +94,7 @@ const updateSlider = () => {
   const bulletPosition = cellRange.value / cellRange.max;
   rangeBullet.style.left = `calc(${bulletPosition * 100}% - 1em)`;
 };
-console.log({ orientationPanel });
+
 orientationPanel.forEach((radio) => {
   radio.addEventListener('click', onOrientationChange, false);
 });

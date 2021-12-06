@@ -42,7 +42,7 @@ export const emojiList = {
   Z: [129427],
 };
 
-const fragment = document.createDocumentFragment();
+export const fragment = document.createDocumentFragment();
 
 export const createDivList = (list = []) => {
   return list.forEach((item) => {
@@ -80,4 +80,14 @@ export const spellingList = {
   X: 'xerox',
   Y: 'yoga',
   Z: 'zebra',
+  0: 'zero',
+  1: 'one',
+  2: 'two',
+  3: 'three',
+  4: 'four',
+  5: 'five',
+  6: 'six',
+  7: 'seven',
+  8: 'eight',
+  9: 'nine',
 };

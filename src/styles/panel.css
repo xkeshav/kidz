@@ -8,6 +8,7 @@ body {
   text-align: center;
   height: 100%;
 }
+
 :root {
   --rotation: 0;
   --color-max: 255;
@@ -19,7 +20,7 @@ body {
 
 main {
   display: grid;
-  grid-template-columns: 'toggle' 'option' 'panel';
+  grid-template-areas: 'toggle' 'option' 'panel';
   grid-auto-flow: row;
   grid-template-rows: 20px minmax(10px, 180px) 1fr;
   align-items: center;
@@ -29,7 +30,7 @@ main {
 
 .panel__options {
   grid-area: option;
-  background: linear-gradient(90deg #dbc4dd 05, #d7d2a7 100%);
+  background: linear-gradient(95deg #dbc4dd 0%, #d7d2a7 100%);
 }
 
 .expand {
@@ -50,8 +51,8 @@ main {
 }
 
 .panel {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   position: relative;
   transform: translateZ(-288px);
   transform-style: preserve-3d;
@@ -72,7 +73,6 @@ main {
   text-align: center;
   opacity: 1;
   transition: transform 1s, opacity 1s;
-  transform: rotateY(var(--ry, 0)) translateZ(var(--tz, 0));
 }
 
 .panel__cell:nth-child(10n + 1) {
@@ -153,7 +153,7 @@ main {
   color: white;
   font-size: larger;
   border-radius: 4px;
-  display: -ms-inline-grid;
+  display: inline-grid;
   width: 60px;
   transition: all 0.5s;
   cursor: pointer;
