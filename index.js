@@ -14,6 +14,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/typing', (req, res) => {
+  console.log('typing....');
   res.sendFile(path.join(__dirname, 'src', 'html', 'typing.html'));
 });
 
@@ -27,6 +28,10 @@ app.get('/panel', (req, res) => {
 
 app.get('/grid', (req, res) => {
   res.sendFile(path.join(__dirname, 'src', 'html', 'grid.html'));
+});
+
+app.get('/record', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src', 'html', 'record.html'));
 });
 
 app.use('/', express.static(path.join(__dirname, 'src')));
