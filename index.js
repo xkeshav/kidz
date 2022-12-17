@@ -13,6 +13,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'src', 'index.html'));
 });
 
+app.get('/index', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src', 'index.html'));
+});
+
 app.get('/typing', (req, res) => {
   console.log('typing....');
   res.sendFile(path.join(__dirname, 'src', 'html', 'typing.html'));
@@ -24,6 +28,10 @@ app.get('/reader', (req, res) => {
 
 app.get('/panel', (req, res) => {
   res.sendFile(path.join(__dirname, 'src', 'html', 'panel.html'));
+});
+
+app.get('/hindi', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src', 'html', 'hindi.html'));
 });
 
 app.get('/grid', (req, res) => {
