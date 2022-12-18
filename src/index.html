@@ -5,73 +5,32 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Kidz</title>
-	<style>
-		ul {
-			list-style-type: none;
-		}
-
-		.nav--list {
-			display: grid;
-			grid-auto-flow: row;
-			grid-gap: 1em;
-			margin: 1.5rem;
-			grid-auto-rows: 300px;
-			align-items: center;
-		}
-
-		.list--item {
-			background-image: linear-gradient(45deg, #85d6ad, #55afad 30%, #9c4f76);
-			height: 100%;
-			place-content: center;
-			display: grid;
-		}
-
-		.link--base {
-			color: aliceblue;
-			font-size: 6rem;
-			font-family: cursive;
-		}
-
-		.link--base:hover {
-			animation: moving 2s infinite;
-		}
-
-		@keyframes moving {
-
-			from,
-			to {
-				transform: translateX(0);
-				color: aliceblue;
-			}
-
-			30% {
-				transform: translateX(20px);
-				color: #5b3333;
-			}
-		}
-	</style>
+	<title>Kidz Learning</title>
+	<link rel="stylesheet" type="text/css" href="styles/index.css">
 </head>
 
-<body>
-
-	<header>
-		<div class="header">
-			<div class="header--content">
-				<a href="#" class="logo">Kid Lab</a>
-				<nav class="nav">
-					<ul class="nav--list">
-						<li class="list--item "><a class="link--base" href="/index"">About</a></li>
-						<li class=" list--item "><a class=" link--base" href="/reader">Reader</a></li>
-						<li class="list--item "><a class="link--base" href="/hindi">Hindi</a></li>
-						<li class="list--item "><a class="link--base" href="/panel">Panel</a></li>
-						<li class="list--item "><a class="link--base" href="/typing">Typing</a></li>
-						<li class="list--item "><a class="link--base" href="/record">Record</a></li>
-					</ul>
-				</nav>
-			</div>
+<body class="container">
+	<header class="header">
+		<div class="header--content">
+			<a href="#" class="logo">Kid Lab</a>
+			<div class="switch"></div>
 		</div>
 	</header>
+	<main class="main">
+		<nav class="nav">
+			<ul class="nav--list">
+				<li class="list--item "><a class="link--base" href="/index"">About</a></li>
+				<li class=" list--item "><a class=" link--base" href="/reader">Reader</a></li>
+				<li class="list--item "><a class="link--base" href="/hindi">Hindi</a></li>
+				<li class="list--item "><a class="link--base" href="/panel">Panel</a></li>
+				<li class="list--item "><a class="link--base" href="/typing">Typing</a></li>
+				<li class="list--item "><a class="link--base" href="/record">Record</a></li>
+			</ul>
+		</nav>
+	</main>
+	<footer>
+		Copyright by RecursiveZero. 2022-23
+	</footer>
 
 </body>
 
