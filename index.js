@@ -2,14 +2,20 @@
 import express from 'express';
 import path from 'path';
 
+const port = 3000;
+
 const app = express();
 
 const router = express.Router();
 
 app.use(express.static(__dirname + '/assets'));
 
+app.use((req, res, next) => {
+  console.log('Time: ', Date.now());
+  next();
+});
+
 app.get('/', (req, res) => {
-  // res.send('HomePage');
   res.sendFile(path.join(__dirname, 'src', 'index.html'));
 });
 
@@ -39,11 +45,20 @@ app.get('/grid', (req, res) => {
 });
 
 app.get('/record', (req, res) => {
+  console.log('Accessing the record section…');
   res.sendFile(path.join(__dirname, 'src', 'html', 'record.html'));
+  //next();
+});
+
+app.use(function (err, req, res, next) {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
 });
 
 app.use('/', express.static(path.join(__dirname, 'src')));
+
 app.use('/', router);
-app.listen(3000, () => {
-  console.log(' listening port 3000');
+
+app.listen(port, () => {
+  console.log(' listening port ' + port);
 });

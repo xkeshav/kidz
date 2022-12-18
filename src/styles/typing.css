@@ -15,6 +15,14 @@
   will-change: contents;
 }
 
+.header {
+  display: grid;
+  grid-template-columns: 5rem 1fr 3rem;
+  align-items: center;
+  height: 4rem;
+  padding: 1rem;
+}
+
 .letter {
   grid-area: letter;
   font-size: 18em;
