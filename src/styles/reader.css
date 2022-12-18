@@ -24,6 +24,11 @@ main {
   display: none;
 }
 
+.scroll {
+  margin-top: 10px;
+  scroll-behavior: smooth;
+}
+
 .header {
   display: grid;
   grid-template-columns: 3rem 1fr 3rem;

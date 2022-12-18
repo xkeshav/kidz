@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { isAlphabet } from './utils.js';
 
 const panel = document.querySelector('.panel');
@@ -5,14 +6,16 @@ const cellRange = document.getElementById('range');
 const orientationPanel = document.querySelectorAll('.orientation');
 const rangeBullet = document.getElementById('range-bullet');
 
+let orientation;
+
 let selectedIndex = 0;
 const cellWidth = panel.offsetWidth;
 let radius, theta;
 
 const rotatePanel = ({ rotate = 'rotateX' }) => {
   const angle = theta * selectedIndex;
-  const transformProp = `translateZ(-${radius}px) ${rotate}(${angle}deg)`;
-  panel.style.transform = transformProp;
+  const transformString = `translateZ(-${radius}px) ${rotate}(${angle}deg)`;
+  panel.style.transform = transformString;
 };
 
 const updatePanel = (num = 0) => {
@@ -27,7 +30,7 @@ const updatePanel = (num = 0) => {
   panel.appendChild(fragment);
 };
 
-const changePanel = ({ orientation }) => {
+const changePanel = ({ orientation = 'Y' }) => {
   const rotate = `rotate${orientation}`;
   const cellCount = Number(cellRange.value);
   updatePanel(cellCount);
@@ -45,13 +48,15 @@ const changePanel = ({ orientation }) => {
 };
 
 const onOrientationChange = (e) => {
-  const orientation = e.target.value;
+  orientation = e.target.value;
+  
+  e.target.parentNode.getElementsByTagName('label')[0].classList.add('selected');
   changePanel({ orientation });
 };
 
 const onKeyChange = (e) => {
   const { keyCode } = e;
-  let orientation;
+  //let orientation;
   switch (keyCode) {
     case 39: {
       // ArrowRight
@@ -83,7 +88,6 @@ const onKeyChange = (e) => {
       } else {
         selectedIndex--;
       }
-      orientation = 'X';
     }
   }
   changePanel({ orientation });
@@ -91,8 +95,8 @@ const onKeyChange = (e) => {
 
 const updateSlider = () => {
   rangeBullet.innerHTML = cellRange.value;
-  const bulletPosition = cellRange.value / cellRange.max;
-  rangeBullet.style.left = `calc(${bulletPosition * 100}% - 1em)`;
+  //const bulletPosition = cellRange.value / cellRange.max;
+  //rangeBullet.style.left = `calc(${bulletPosition * 100}% - 1em)`;
 };
 
 orientationPanel.forEach((radio) => {

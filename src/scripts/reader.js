@@ -3,6 +3,7 @@ import { emojiList, isAlphabet, isNumber, random } from './utils.js';
 const mainBlock = document.querySelector('main');
 const muteButton = document.querySelector('#mute');
 const audioPlayer = document.querySelector('#audioPlayer');
+const header = document.querySelector('.header');
 
 let isMuted = false;
 
@@ -67,6 +68,7 @@ document.addEventListener(
     const { key, keyCode, which, code } = e;
     console.log({ e });
     if (!isNonPrintingKey(e)) {
+      header?.classList.add('scroll');
       if (isAlphabet(which)) {
         const emoji = getEmoji(key);
         mainBlock.innerHTML = key + emoji;

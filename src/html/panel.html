@@ -14,13 +14,17 @@
 		<a href="/"> Back</a>
 		<h5>Alphabets carousel</h5>
 	</header>
-	<main>
+	<main class="main">
 		<section id="option-box" class="panel__options expand">
 			<div class="orientation__option">
-				<input type="radio" class="orientation" name="orientation" id="horizontal" value="X" checked>
-				<label for="horizontal">↔</label>
-				<input type="radio" class="orientation" name="orientation" id="vertical" value="X" checked>
-				<label for="vertical">↕</label>
+				<div class="orientation--kind">
+					<input type="radio" class="orientation" name="orientation" id="horizontal" value="X">
+					<label for="horizontal">🚦</label>
+				</div>
+				<div class="orientation--kind">
+					<input type="radio" class="orientation" name="orientation" id="vertical" value="Y">
+					<label for="vertical">🚦</label>
+				</div>
 			</div>
 			<div class="range__option">
 				<span id="range-bullet" class="range__label">0</span>
