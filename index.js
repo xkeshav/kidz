@@ -2,60 +2,64 @@
 import express from 'express';
 import path from 'path';
 
+const app = express();
+
+const BASE_DIR = path.join(__dirname, 'src');
+const HTML_DIR = path.join(BASE_DIR, 'html');
 const port = 3000;
 
-const app = express();
+//console.log({ BASE_DIR, HTML_DIR });
 
 const router = express.Router();
 
-app.use(express.static(__dirname + '/assets'));
-
-app.use((req, res, next) => {
-  console.log('Time: ', Date.now());
+app.use((_, res, next) => {
+  let now = new Date();
+  console.log('Time: ', now.toUTCString());
   next();
 });
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src', 'index.html'));
+router.get('/', (_, res) => {
+  res.sendFile(`${HTML_DIR}/index.html`);
 });
 
-app.get('/index', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src', 'index.html'));
+router.get('/index', (_, res) => {
+  res.sendFile(`${HTML_DIR}/index.html`);
 });
 
-app.get('/typing', (req, res) => {
+router.get('/typing', (_, res) => {
   console.log('typing....');
-  res.sendFile(path.join(__dirname, 'src', 'html', 'typing.html'));
+  res.sendFile(`${HTML_DIR}/typing.html`);
 });
 
-app.get('/reader', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src', 'html', 'reader.html'));
+router.get('/reader', (_, res) => {
+  res.sendFile(`${HTML_DIR}/reader.html`);
 });
 
-app.get('/panel', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src', 'html', 'panel.html'));
+router.get('/panel', (_, res) => {
+  res.sendFile(`${HTML_DIR}/panel.html`);
 });
 
-app.get('/hindi', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src', 'html', 'hindi.html'));
+router.get('/hindi', (_, res) => {
+  res.sendFile(`${HTML_DIR}/hindi.html`);
 });
 
-app.get('/grid', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src', 'html', 'grid.html'));
+router.get('/tree', (_, res) => {
+  res.sendFile(`${HTML_DIR}/tree.html`);
 });
 
-app.get('/record', (req, res) => {
+router.get('/record', (_, res) => {
   console.log('Accessing the record section…');
-  res.sendFile(path.join(__dirname, 'src', 'html', 'record.html'));
-  //next();
+  res.sendFile(`${HTML_DIR}/record.html`);
 });
 
-app.use(function (err, req, res, next) {
+// error handling middleware
+
+app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Something broke!');
 });
 
-app.use('/', express.static(path.join(__dirname, 'src')));
+app.use('/', express.static(BASE_DIR));
 
 app.use('/', router);
 

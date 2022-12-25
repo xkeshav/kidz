@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { colorBox, emojiList, isAlphabet, isNumber, random, spellingList } from './utils.js';
 
 const letterDiv = document.querySelector('.letter');
