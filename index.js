@@ -52,6 +52,10 @@ router.get('/record', (_, res) => {
   res.sendFile(`${HTML_DIR}/record.html`);
 });
 
+router.get('/color', (_, res) => {
+  res.sendFile(`${HTML_DIR}/color.html`);
+});
+
 // error handling middleware
 
 app.use((err, req, res, next) => {
