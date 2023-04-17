@@ -6,6 +6,7 @@
   "scripts": {
     "start": "nodemon --watch . --exec babel-node -- start.js"
   },
+  "license": "LICENSE"
   "author": "Keshav Mohta",
   "license": "ISC",
   "dependencies": {
