@@ -6,7 +6,7 @@ const app = express();
 
 const BASE_DIR = path.join(__dirname, 'src');
 const HTML_DIR = path.join(BASE_DIR, 'html');
-const port = 3000;
+const port = 3033;
 
 //console.log({ BASE_DIR, HTML_DIR });
 

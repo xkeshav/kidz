@@ -1,6 +1,10 @@
+/* following :root block added by css color collector */
+:root {
+	--main__bg--1: beige;
+}
 main {
   display: grid;
-  background-color: beige;
+  background-color: var(--main__bg--1);
   height: 100vh;
   justify-content: center;
   align-items: center;

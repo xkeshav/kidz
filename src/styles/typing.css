@@ -1,3 +1,9 @@
+/* following :root block added by css color collector */
+:root {
+	--main__bg--1: coral;
+	--letter__txt--2: blueviolet;
+	--spelling__txt--3: palevioletred;
+}
 :root {
   --steps: 10;
 }
@@ -13,7 +19,7 @@
   font-size: 1rem;
   place-items: center;
   will-change: contents;
-  background-color: coral;
+  background-color: var(--main__bg--1);
 }
 
 .header {
@@ -27,7 +33,7 @@
 .letter {
   grid-area: letter;
   font-size: 18em;
-  color: blueviolet;
+  color: var(--letter__txt--2);
   transition: color 0.5s ease-in;
 }
 
@@ -51,7 +57,7 @@
   font-family: monospace;
   font-size: 8em;
   transition: all 0.5s ease-in-out;
-  color: palevioletred;
+  color: var(--spelling__txt--3);
 }
 
 @keyframes typing {

@@ -1,3 +1,17 @@
+/* following :root block added by css color collector */
+:root {
+	--button__bg--1: #0088cc;
+	--button__txt--2: white;
+	--button__bg--3: yellow;
+	--button__txt--4: crimson;
+	--button__bg--5: #4ad6c1;
+	--button__txt--6: #c33019;
+	--button__box__shadow--7: rgba(255, 255, 255, 1);
+	--button__bg--8: #56856c;
+	--button__box__shadow--9: rgba(0, 0, 0, 0.5);
+	--button__bg--10: red;
+	--label__bg--11: black;
+}
 * {
   margin: 0;
   padding: 0;
@@ -49,32 +63,32 @@ canvas {
 
 .button--group > button {
   font-size: 1rem;
-  background-color: #0088cc;
+  background-color: var(--button__bg--1);
   text-align: center;
-  color: white;
+  color: var(--button__txt--2);
   border: none;
   transition: all 0.2s;
   padding: 1rem;
 }
 
 button.record--on {
-  background-color: yellow;
-  color: crimson;
+  background-color: var(--button__bg--3);
+  color: var(--button__txt--4);
 }
 
 button.resume {
-  background-color: #4ad6c1;
-  color: #c33019;
+  background-color: var(--button__bg--5);
+  color: var(--button__txt--6);
 }
 
 button:hover,
 button:focus {
-  box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 1);
-  background-color: #56856c;
+  box-shadow: inset 0px 0px 10px var(--button__box__shadow--7);
+  background-color: var(--button__bg--8);
 }
 
 button:active {
-  box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0px 0px 20px var(--button__box__shadow--9);
   transform: translateX(2px);
 }
 
@@ -110,11 +124,11 @@ audio {
 }
 
 button.delete {
-  background-color: red;
+  background-color: var(--button__bg--10);
   padding: 0.5rem 0.75rem;
   font-size: 0.8rem;
   border: none;
-  color: white;
+  color: var(--button__txt--2);
 }
 
 label {
@@ -124,7 +138,7 @@ label {
   right: 3px;
   z-index: 5;
   cursor: pointer;
-  background-color: black;
+  background-color: var(--label__bg--11);
   border-radius: 10px;
 }
 

@@ -1,3 +1,16 @@
+/* following :root block added by css color collector */
+:root {
+	--main__bg--1: black;
+	--panel__options__bg__img--2: #77247d;
+	--panel__options__bg__img--3: #9ba69a;
+	--range__option__txt--4: whitesmoke;
+	--scene__border--5: #5d3a3a;
+	--panel__cell__txt--6: white;
+	--0__bg--7: rgba(191, 64 149, 0.8);
+	--orientation__bg--8: hsla(31, 28%, 62%, 0.42);
+	--orientation__bg--9: hsla(80, 28%, 62%, 0.8);
+	--label__bg--10: hsla(100, 78%, 63%, 0.8);
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -28,7 +41,7 @@ main {
   align-items: center;
   grid-gap: 0.8rem;
   min-height: 100vh;
-  background-color: black;
+  background-color: var(--main__bg--1);
 }
 
 .header {
@@ -41,7 +54,7 @@ main {
 
 .panel__options {
   grid-area: option;
-  background-image: linear-gradient(to right, #77247d 40%, #9ba69a 100%);
+  background-image: linear-gradient(to right, var(--panel__options__bg__img--2) 40%, var(--panel__options__bg__img--3) 100%);
 }
 
 .expand {
@@ -59,12 +72,12 @@ label[for='vertical'] {
 }
 
 .range__option {
-  color: whitesmoke;
+  color: var(--range__option__txt--4);
 }
 
 .scene {
   grid-area: panel;
-  border: 1px solid #5d3a3a;
+  border: 1px solid var(--scene__border--5);
   width: 15rem;
   height: 10rem;
   perspective: 1000px;
@@ -86,11 +99,11 @@ label[for='vertical'] {
   width: 15rem;
   left: 0;
   top: 0;
-  border: 2px inset black;
+  border: 2px inset var(--main__bg--1);
   line-height: 10rem;
   font-size: 5rem;
   font-weight: bold;
-  color: white;
+  color: var(--panel__cell__txt--6);
   text-align: center;
   opacity: 1;
   transition: transform 1s, opacity 1s;
@@ -124,7 +137,7 @@ label[for='vertical'] {
   background-color: rgba(var(--color-max), 0, var(--color-mid), 0.8);
 }
 .panel__cell:nth-child(10n + 0) {
-  background-color: rgba(191, 64 149, 0.8);
+  background-color: var(--0__bg--7);
 }
 
 .panel__cell:nth-child(1) {
@@ -178,8 +191,8 @@ label[for='vertical'] {
 }
 
 .orientation--kind label {
-  background-color: hsla(31, 28%, 62%, 0.42);
-  color: white;
+  background-color: var(--orientation__bg--8);
+  color: var(--panel__cell__txt--6);
   border-radius: 0.5rem;
   transition: all 0.5s;
   cursor: pointer;
@@ -187,10 +200,10 @@ label[for='vertical'] {
 }
 
 .orientation--kind label:hover {
-  background-color: hsla(80, 28%, 62%, 0.8);
+  background-color: var(--orientation__bg--9);
 }
 
 .orientation--kind input[type='radio']:checked + label {
-  color: white;
-  background-color: hsla(100, 78%, 63%, 0.8);
+  color: var(--panel__cell__txt--6);
+  background-color: var(--label__bg--10);
 }
