@@ -16,9 +16,7 @@ muteButton.addEventListener('click', (e) => {
 });
 
 const getEmoji = (letter) => {
-  console.log({ letter });
   const { [letter.toUpperCase()]: list = [] } = emojiList;
-  console.log({ list });
   if (list.length) {
     const codePoint = random(list);
     return String.fromCodePoint(codePoint);
@@ -27,7 +25,7 @@ const getEmoji = (letter) => {
 
 const attachAudio = (key, isNumber = false) => {
   let keyName;
-  let location = './media/';
+  let location = '../media/';
   if (isNumber) {
     keyName = key.replace('Digit', '');
     location += 'numbers';
@@ -46,9 +44,7 @@ const attachAudio = (key, isNumber = false) => {
   audioPlayer.oncanplaythrough = async () => {
     try {
       const playedPromise = await audioPlayer.play();
-      console.log({ playedPromise });
     } catch (e) {
-      console.dir({ e });
       if (e.name === 'NotAllowedError' || e.name === 'NotSupportedError') {
         console.error(e.name);
       }
@@ -58,7 +54,6 @@ const attachAudio = (key, isNumber = false) => {
 
 const isNonPrintingKey = (e) => {
   const { altKey, ctrlKey, metaKey, shiftKey } = e;
-  console.log({ altKey, ctrlKey, metaKey, shiftKey });
   return metaKey || ctrlKey || shiftKey || altKey;
 };
 
@@ -66,13 +61,11 @@ document.addEventListener(
   'keydown',
   (e) => {
     const { key, keyCode, which, code } = e;
-    console.log({ e });
     if (!isNonPrintingKey(e)) {
       header?.classList.add('scroll');
       if (isAlphabet(which)) {
         const emoji = getEmoji(key);
         mainBlock.innerHTML = key + emoji;
-        console.log({ emoji });
         attachAudio(code);
       } else if (isNumber(keyCode)) {
         mainBlock.innerHTML = key;
