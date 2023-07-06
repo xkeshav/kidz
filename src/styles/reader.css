@@ -37,8 +37,10 @@ main {
 
 .header {
   display: grid;
-  grid-template-columns: 3rem 1fr 3rem;
+  grid-auto-flow: column;
   align-items: center;
+  grid-template-columns: 4rem minmax(60vw, 1fr) min-content;
+  grid-gap: 8px;
 }
 
 .button {
@@ -47,6 +49,7 @@ main {
   border: none;
   background-color: var(--button__bg--3);
   cursor: pointer;
+  width: 2em;
 }
 
 .button-audio::before {
@@ -55,4 +58,15 @@ main {
 
 .button-audio.mute::before {
   content: '\1F507';
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav > div {
+  border: 1px solid red;
+  padding-inline: 1rem;
 }

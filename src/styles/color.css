@@ -9,6 +9,7 @@
 	--dialog__txt--7: white;
 	--modal__box__shadow--8: rgba(0, 0, 0, 0.2);
 	--btn__bg--9: #fff1f1d1;
+  --deep: #00ff7f ;
 }
 body {
   margin: 0;

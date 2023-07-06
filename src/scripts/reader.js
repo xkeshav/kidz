@@ -31,7 +31,7 @@ const attachAudio = (key, isNumber = false) => {
     location += 'numbers';
   } else {
     keyName = key.replace('Key', '').toLowerCase();
-    location += 'alphabets/rutvi';
+    location += 'alphabets';
   }
   const source = `${location}/${keyName}.ogg`;
   audioPlayer.src = source;

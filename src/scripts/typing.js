@@ -54,7 +54,6 @@ const drawSomething = () => {
 document.addEventListener(
   'keydown',
   (e) => {
-    console.log({ e });
     e.preventDefault();
     const color = random(colorBox);
     const { key, keyCode } = e;

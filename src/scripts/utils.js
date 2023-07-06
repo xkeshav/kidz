@@ -1,18 +1,13 @@
 // create array of english alphabets
 export const alphabets = Array.from(Array(26), (_, i) => String.fromCharCode(55 + i));
-
 // check in capital and small alphabet range
 export const isAlphabet = (key) => (65 <= key && key <= 90) || (key >= 97 && key <= 122);
-
 export const isNumber = (key) => 48 <= key && key <= 57;
-
 // fetch random value from given array
 export const random = (array = []) => array[Math.floor(Math.random() * array.length)];
+export const colorBox = ['#5d4821', 'crimson', '#ff1493', '#00ff7f', '#67ffff', '#9a1717'];
 
-export const colorBox = ['#5d4821', 'crimson', 'deepPink', 'springGreen', '#67ffff', '#9a1717'];
-
-// create an object where  each letter is the key and value are emoji list f it's word using .codePointAt()
-
+// create an object where  each letter is the key and value are emoji list if it's word using .codePointAt()
 export const emojiList = {
   A: [9992, 127822],
   B: [127820, 128214],
