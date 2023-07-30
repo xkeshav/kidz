@@ -5,6 +5,7 @@ const panel = document.querySelector('.panel');
 const cellRange = document.getElementById('range');
 const orientationPanel = document.querySelectorAll('.orientation');
 const rangeBullet = document.getElementById('range-bullet');
+//const panelOptionDiv = document.querySelector('#panel__options');
 
 let orientation;
 
@@ -32,6 +33,8 @@ const updatePanel = (num = 0) => {
 
 const changePanel = ({ orientation = 'Y' }) => {
   const rotate = `rotate${orientation}`;
+  const radioInput = document.querySelectorAll('input[type=radio]');
+  radioInput.forEach( r => r.checked = r.defaultValue === orientation);
   const cellCount = Number(cellRange.value);
   updatePanel(cellCount);
   theta = 360 / cellCount;
@@ -49,8 +52,8 @@ const changePanel = ({ orientation = 'Y' }) => {
 
 const onOrientationChange = (e) => {
   orientation = e.target.value;
-  
-  e.target.parentNode.getElementsByTagName('label')[0].classList.add('selected');
+  console.log({orientation}); 
+  //e.target.closest('label').classList.add('selected');
   changePanel({ orientation });
 };
 
