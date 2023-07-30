@@ -4,7 +4,6 @@ import { isAlphabet } from './utils.js';
 const panel = document.querySelector('.panel');
 const cellRange = document.getElementById('range');
 const orientationPanel = document.querySelectorAll('.orientation');
-const rangeBullet = document.getElementById('range-bullet');
 //const panelOptionDiv = document.querySelector('#panel__options');
 
 let orientation;
@@ -96,18 +95,12 @@ const onKeyChange = (e) => {
   changePanel({ orientation });
 };
 
-const updateSlider = () => {
-  rangeBullet.innerHTML = cellRange.value;
-  //const bulletPosition = cellRange.value / cellRange.max;
-  //rangeBullet.style.left = `calc(${bulletPosition * 100}% - 1em)`;
-};
 
 orientationPanel.forEach((radio) => {
   radio.addEventListener('click', onOrientationChange, false);
 });
 
 cellRange.addEventListener('change', changePanel);
-cellRange.addEventListener('input', updateSlider);
 document.addEventListener('keydown', onKeyChange);
 
 updatePanel();

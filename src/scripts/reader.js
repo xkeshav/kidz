@@ -4,6 +4,20 @@ const mainBlock = document.querySelector('main');
 const muteButton = document.querySelector('#mute');
 const audioPlayer = document.querySelector('#audioPlayer');
 const header = document.querySelector('.header');
+const speaker = document.querySelector('#speaker');
+
+let speakerName;
+
+speaker.addEventListener('click', (e) => {
+  speakerName = e.target.dataset.name;
+  Array.from(e.target.parentNode.children).forEach(c => {
+    if(c.dataset.name === speakerName ) {
+      c.classList.toggle('active');
+    } else {
+      c.classList.remove('active');
+    }
+  });
+})
 
 let isMuted = false;
 
@@ -25,7 +39,7 @@ const getEmoji = (letter) => {
 
 const attachAudio = (key, isNumber = false) => {
   let keyName;
-  let location = '../media/';
+  let location = './media/';
   if (isNumber) {
     keyName = key.replace('Digit', '');
     location += 'numbers';
@@ -33,7 +47,7 @@ const attachAudio = (key, isNumber = false) => {
     keyName = key.replace('Key', '').toLowerCase();
     location += 'alphabets';
   }
-  const source = `${location}/${keyName}.ogg`;
+  const source = `${location}/${speakerName}/${keyName}.ogg`;
   audioPlayer.src = source;
   audioPlayer.load();
   // alternative approach which seems better without adding anything to HTML
@@ -43,7 +57,7 @@ const attachAudio = (key, isNumber = false) => {
   // when the sound has been loaded, execute your code
   audioPlayer.oncanplaythrough = async () => {
     try {
-      const playedPromise = await audioPlayer.play();
+      await audioPlayer.play();
     } catch (e) {
       if (e.name === 'NotAllowedError' || e.name === 'NotSupportedError') {
         console.error(e.name);
@@ -62,14 +76,14 @@ document.addEventListener(
   (e) => {
     const { key, keyCode, which, code } = e;
     if (!isNonPrintingKey(e)) {
-      header?.classList.add('scroll');
+      header && header.classList.add('scroll');
       if (isAlphabet(which)) {
         const emoji = getEmoji(key);
         mainBlock.innerHTML = key + emoji;
-        attachAudio(code);
+        muteButton && attachAudio(code);
       } else if (isNumber(keyCode)) {
         mainBlock.innerHTML = key;
-        attachAudio(code, true);
+        muteButton && attachAudio(code, true);
       } else {
         const x = String.fromCodePoint(112080);
         mainBlock.innerHTML = x;

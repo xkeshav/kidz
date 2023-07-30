@@ -4,13 +4,14 @@ This is few fun and learn practice for kids
 
 ## how to start
 
+install dependencies using
 `npm install`
 
-and
+and run the project using
 
 `npm run start`
 
-and open `http://localhost:3000` in the browser
+open <http://localhost:3033> in the browser to view
 
 ## Screenshot
 
