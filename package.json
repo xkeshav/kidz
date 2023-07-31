@@ -2,9 +2,11 @@
   "name": "kidz",
   "version": "1.0.0",
   "description": "fun for kidz",
-  "main": "start.js",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "nodemon --watch . --exec babel-node -- start.js"
+    "start:local": "nodemon --watch . --exec babel-node -- start.js",
+    "start": "parcel index.js",
+    "build": "parcel build index.js"
   },
   "license": "LICENSE",
   "author": "Keshav Mohta",
@@ -12,6 +14,7 @@
     "@babel/polyfill": "7.4.4",
     "@babel/preset-env": "^7.21.4",
     "@babel/register": "^7.15.3",
+    "@parcel/babel-preset-env": "^2.9.3",
     "body-parser": "^1.20.2",
     "express": "^4.18.2"
   },
@@ -19,10 +22,24 @@
     "@babel/cli": "^7.21.0",
     "@babel/core": "^7.21.4",
     "@babel/node": "7.2.2",
+    "assert": "^2.0.0",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
     "eslint": "5.16.0",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-plugin-import": "2.17.2",
+    "events": "^3.3.0",
     "nodemon": "^2.0.22",
-    "path": "^0.12.7"
+    "parcel": "^2.9.3",
+    "path": "^0.12.7",
+    "path-browserify": "^1.0.1",
+    "punycode": "^1.4.1",
+    "querystring-es3": "^0.2.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "string_decoder": "^1.3.0",
+    "url": "^0.11.1",
+    "util": "^0.12.5"
   }
 }
