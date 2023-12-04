@@ -8,7 +8,7 @@ const BASE_DIR = path.join(__dirname, 'src');
 const HTML_DIR = path.join(BASE_DIR, 'html');
 const port = 3033;
 
-//console.log({ BASE_DIR, HTML_DIR });
+// console.log({ BASE_DIR, HTML_DIR });
 
 const router = express.Router();
 
@@ -55,10 +55,24 @@ router.get('/record', (_, res) => {
 router.get('/color', (_, res) => {
   res.sendFile(`${HTML_DIR}/color.html`);
 });
+router.get('/about', (_, res) => {
+  res.sendFile(`${HTML_DIR}/about.html`);
+});
+router.get('/math', (_, res) => {
+  res.sendFile(`${HTML_DIR}/math.html`);
+});
+router.get('/draw', (_, res) => {
+  res.sendFile(`${HTML_DIR}/draw.html`);
+});
+router.get('/varnmala', (_, res) => {
+  res.sendFile(`${HTML_DIR}/varnmala.html`);
+});
+router.get('/canvas', (_, res) => {
+  res.sendFile(`${HTML_DIR}/canvas.html`);
+});
 
 // error handling middleware
-
-app.use((err, req, res) => {
+app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Something broke!');
 });
