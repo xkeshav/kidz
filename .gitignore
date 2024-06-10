@@ -27,10 +27,7 @@ Thumbs.db
 desktop.ini
 
 # IDE
-*.sublime-*
-*.code-workspace
 /.idea
-.vscode/*
 *~
 
 # log files
