@@ -56,6 +56,10 @@ router.get('/color', (_, res) => {
   res.sendFile(`${HTML_DIR}/color.html`);
 });
 
+router.get('/theme', (_, res) => {
+  res.sendFile(`${HTML_DIR}/theme.html`);
+});
+
 // error handling middleware
 
 app.use((err, req, res, _) => {
